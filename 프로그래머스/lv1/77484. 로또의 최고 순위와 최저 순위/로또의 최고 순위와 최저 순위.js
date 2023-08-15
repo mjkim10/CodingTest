@@ -2,6 +2,7 @@ function solution(lottos, win_nums) {
     var answer = [];
     let corCnt = 0;
     let missCnt = 0;
+    let rank = [6,6,5,4,3,2,1];
     
     lottos.sort((a,b) => a-b);
     win_nums.sort((a,b) => a-b);
@@ -12,5 +13,5 @@ function solution(lottos, win_nums) {
         if (lottos[i] === win_nums[j]) corCnt++;
     }
     
-    return [7 - ((corCnt + missCnt)||1), 7 - (corCnt||1)];
+    return [rank[corCnt + missCnt], rank[corCnt]];
 }
