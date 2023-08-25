@@ -1,5 +1,4 @@
 function solution(n) {
-    // var arr = [...Array(n - 1)].map((_,i) => i + 2);
     var answer = n - 1;
     let primes = [];
     
