@@ -13,21 +13,16 @@ function solution(n, computers) {
     }
     
     const check = (idx) => {
-        if (visit[idx]) return;
-        visit[idx] = 1;
+        if (visit[idx]) return 0;
+        visit[idx] = 1; 
+        
         for (let i = 0; i < comArr[idx].length; i++) 
             check(comArr[idx][i]);
+        return 1;
     }
     
     for (let i = 0; i < comArr.length; i++) {
-        if (visit[i]) continue;
-        visit[i] = 1; answer++; 
-        
-        if (!comArr[i].length) continue;
-        
-        for (let j = 0; j < comArr[i].length; j++) {
-            check(comArr[i][j]);
-        }
+        answer += check(i);
     }
     
     return answer;
