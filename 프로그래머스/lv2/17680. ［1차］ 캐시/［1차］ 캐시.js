@@ -8,7 +8,7 @@ function solution(cacheSize, cities) {
         let idx = arr.indexOf(cities[i].toLowerCase());
         
         if (idx > -1) {
-            arr = [...arr.slice(0, idx), ...arr.slice(idx + 1)];
+            arr.splice(idx, 1);
             answer++;
         } else answer += 5;
         
