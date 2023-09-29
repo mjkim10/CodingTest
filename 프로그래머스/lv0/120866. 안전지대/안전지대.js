@@ -1,20 +1,11 @@
 function solution(board) {
     var answer = 0;
+    let arr = [[0,0],[0,-1],[0,1],[-1,0],[-1,-1],[-1,1],[1,0],[1,-1],[1,1]];
     
     const existMine = (i, j) => {
-        if (i > 0) {
-            if (board[i - 1][j - 1]) return 1;
-            if (board[i - 1][j]) return 1;
-            if (board[i - 1][j + 1]) return 1;
+        for (let k = 0; k < arr.length; k++) {
+            if (board[i + arr[k][0]] && board[i + arr[k][0]][j + arr[k][1]]) return 1;
         }
-        if (i < board.length - 1) {
-            if (board[i + 1][j + 1]) return 1;
-            if (board[i + 1][j]) return 1;
-            if (board[i + 1][j - 1]) return 1;
-        }
-        if (board[i][j - 1]) return 1;
-        if (board[i][j]) return 1;
-        if (board[i][j + 1]) return 1;
         return 0;
     }
     
